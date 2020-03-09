@@ -1,0 +1,9 @@
+
+*Link del repositorio del proyecto:
+
+https://github.com/EdwinGeul01/-Esteganograf-a-en-BMP-de-24-bits
+
+*Link de los sitios usados como referencia:
+
+https://wiki.fileformat.com/image/bmp/
+https://nomadaselectronicos.wordpress.com/2015/03/05/manipulacion-de-bits-en-c-y-aplicaciones/

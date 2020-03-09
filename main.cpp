@@ -177,7 +177,7 @@ int main(int argc, char **argv)
             readerFile.seekg(0);
             
             readerFile.read((char*)palabra,size);
-
+            palabra[size-1] = '\0';
             
         }
         
@@ -274,6 +274,7 @@ int main(int argc, char **argv)
         cout << "-o     if you want to write on the bmp file" << endl
             << "-e     if you want to read the file , the message is saved in the message text doc" << endl
             << "-t     shows the maximum size the message can have" << endl
+            << "-v     Validate the image" << endl
             << "-h     show the different program options " << endl << endl;
     
     }
