@@ -12,7 +12,7 @@ class header
 
     char filetype[3];// 2 bytes
     uint32_t csize;// 4 bytes
-    uint16_t message_size;// 4 bytes 
+    unsigned int message_size;// 4 bytes 
     uint32_t imageSataOffset; // 4 bytes
     ifstream file_bmp;
 

@@ -42,15 +42,15 @@ void WriteMessage(char* palabra , vector<int> &color_data)
         {
             if (binary[x] == '0')
             {
-                cout << char2Binary(color_data[colorData_count]) << " - (" << color_data[colorData_count] << " ) --->";
+               // cout << char2Binary(color_data[colorData_count]) << " - (" << color_data[colorData_count] << " ) --->";
                 ApagarBit(1,color_data[colorData_count]);
-                cout << "(" << color_data[colorData_count] << ") - " <<  char2Binary(color_data[colorData_count]) << " APAGANDO \n";
+               // cout << "(" << color_data[colorData_count] << ") - " <<  char2Binary(color_data[colorData_count]) << " APAGANDO \n";
                 colorData_count++;
             }else if(binary[x] == '1')
             {
-                cout << char2Binary(color_data[colorData_count]) << " - (" << color_data[colorData_count] << " ) --->";
+               // cout << char2Binary(color_data[colorData_count]) << " - (" << color_data[colorData_count] << " ) --->";
                 EncenderBit(1,color_data[colorData_count]);
-                cout << "(" << color_data[colorData_count] << ") - " <<  char2Binary(color_data[colorData_count]) << " ENCENDIENDO \n";
+               // cout << "(" << color_data[colorData_count] << ") - " <<  char2Binary(color_data[colorData_count]) << " ENCENDIENDO \n";
                 colorData_count++;
             }
             
@@ -176,8 +176,20 @@ int main(int argc, char **argv)
             palabra = new char[size];
             readerFile.seekg(0);
             
+            if (size == 0)
+            {
+               cout << "no se encontro ningun mensaje en el archivo !!......\n";
+               return 0;
+            }
+            else
+            {
             readerFile.read((char*)palabra,size);
             palabra[size-1] = '\0';
+            }
+            
+
+           
+
             
         }
         
@@ -197,7 +209,7 @@ int main(int argc, char **argv)
 
 
         bmp.OverWrite(color_data,filename,palabra);
-
+        cout << "Mensaje Escrito Correctamente!!.\n"
 
     }
 
@@ -252,16 +264,18 @@ int main(int argc, char **argv)
         //verificando Si el arhivo es apto para el uso del programa
         if (strcmp(bmp.header_bmp.filetype,"BM") != 0 || bmp.Info_bmp.bitPix != 24)
         {
-            cout << "El archivo no es apto para guardar el mensaje \n";
+            cout << "100: Imagen no valida para ocultar el mensaje. . \n";
+            cout << "101: El archivo no contiene un mensaje. \n";
+
             return 0;
         }
 
         if (bmp.header_bmp.message_size != 0)
         {
-            cout << "< ADVERTENCIA !!! > El arhivo ya contiene un mensaje de <" << bmp.header_bmp.message_size << "> Caracteres \n";
+            cout << "101: <ADVERTENCIA !!! > El arhivo ya contiene un mensaje de <" << bmp.header_bmp.message_size << "> Caracteres.\n";
         }
 
-            cout << "El archivo es apto para guardar el mensaje \n";
+            cout << "100: Imagen no valida para ocultar el mensaje. \n";
 
     }
 
