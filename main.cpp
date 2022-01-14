@@ -209,7 +209,7 @@ int main(int argc, char **argv)
 
 
         bmp.OverWrite(color_data,filename,palabra);
-        cout << "Mensaje Escrito Correctamente!!.\n"
+        cout << "Mensaje Escrito Correctamente!!.\n";
 
     }
 
